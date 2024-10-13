@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/modelo_parcial1_labo4/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
