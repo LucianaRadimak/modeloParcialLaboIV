@@ -1,1 +1,9 @@
-<p>table-peliculas works!</p>
+<div class="country-container">
+    <div *ngFor="let pelicula of peliculas" class="country-btn">
+      <!-- Botón con el nombre del actor -->
+      <button class="actor-button" (click)="selectPelicula(pelicula)">
+        {{ pelicula.nombre }}
+      </button>
+    </div>
+  </div>
+  

@@ -13,7 +13,7 @@ export class Actor {
       this.pais = pais;
     }
   
-    toJSON() {
+    toJson() {
       return {
         nombre: this.nombre,
         apellido: this.apellido,

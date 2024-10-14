@@ -1,0 +1,99 @@
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Alta pelicula</h2>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <app-tabla-actores (actor)="seleccionarActor($event)"></app-tabla-actores>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Datos pelicula</h4>
+                <form [formGroup]="encuestaForm" class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="id" class="form-label">id</label>
+                            <input type="number" class="form-control" id="id" placeholder="" formControlName="id"
+                                value="" required>
+                            <div class="error">
+                                <small *ngIf="encuestaForm.get('id')?.invalid && encuestaForm.get('id')?.touched"> solo
+                                    números.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="" formControlName="nombre"
+                                value="" required>
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('nombre')?.invalid && encuestaForm.get('nombre')?.touched">Solo
+                                    puede tener letras.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="tipo" class="form-label">Tipo</label>
+                            <select class="form-control" id="tipo" formControlName="tipo" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="Terror">Terror</option>
+                                <option value="Comedia">Comedia</option>
+                                <option value="Amor">Amor</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                            <div class="error">
+                                <small *ngIf="encuestaForm.get('tipo')?.invalid && encuestaForm.get('tipo')?.touched">
+                                    Debe seleccionar un tipo.
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="fechaEstreno" class="form-label">Fecha de estreno</label>
+                            <input class="input" id="fechaEstreno" type="date" formControlName="fechaEstreno"
+                                required />
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('fechaEstreno')?.invalid && encuestaForm.get('fechaEstreno')?.touched">
+                                    Solo puede ser una fecha valida.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="publico" class="form-label">Cantidad de público</label>
+                            <input class="input" id="publico" type="number" formControlName="publico" required />
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('publico')?.invalid && encuestaForm.get('publico')?.touched">error.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="protagonista" formControlName="protagonista"
+                                placeholder="" required>
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('protagonista')?.invalid && encuestaForm.get('protagonista')?.touched">El
+                                    país es obligatorio.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="fotoPelicula" class="form-label">Imagen</label>
+                            <input class="form-control" id="fotoPelicula" type="file" (change)="onFileSelected($event)"
+                                accept="image/*" />
+                            <div class="error">
+                                <small *ngIf="imagenError">Debe seleccionar un archivo de imagen válido.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" (click)="onSubmit()" type="submit">Alta</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>

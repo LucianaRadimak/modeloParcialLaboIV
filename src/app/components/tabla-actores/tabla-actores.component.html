@@ -1,0 +1,14 @@
+<div class="country-container">
+  <div *ngFor="let actor of actores" class="country-btn">
+    <!-- Botón con el nombre del actor -->
+    <button class="actor-button" (click)="selectActor(actor)">
+      {{ actor.nombre }}  {{ actor.apellido }}
+    </button>
+    <!-- Datos adicionales siempre visibles debajo del botón -->
+    <div class="actor-details">
+      <span>Documento: {{ actor.documento }}</span><br>
+      <span>Edad: {{ actor.edad }}</span><br>
+      <span>País: {{ actor.pais}}</span><br>
+    </div>
+  </div>
+</div>

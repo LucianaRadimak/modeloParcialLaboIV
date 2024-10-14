@@ -1,20 +1,20 @@
 export class Pelicula {
     id: number;
     nombre: string;
-    tipo: 'terror' | 'comedia' | 'amor' | 'otros';
+    tipo: 'Terror' | 'Comedia' | 'Amor' | 'Otros';
     fechaEstreno: Date;
     cantidadPublico: number;
     foto: string;
-    protagonista: string;
+    protagonista: any;
   
     constructor(
       id: number,
       nombre: string,
-      tipo: 'terror' | 'comedia' | 'amor' | 'otros',
+      tipo: 'Terror' | 'Comedia' | 'Amor' | 'Otros',
       fechaEstreno: Date,
       cantidadPublico: number,
       foto: string,
-      protagonista: string
+      protagonista: any
     ) {
       this.id = id;
       this.nombre = nombre;

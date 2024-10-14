@@ -1,0 +1,23 @@
+.country-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre cada elemento */
+}
+
+.country-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.actor-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left; /* Para alinear el texto del botón a la izquierda */
+}
+
+.actor-details {
+  margin-top: 5px;
+  padding-left: 20px; /* Un pequeño margen para desplazar los detalles */
+}

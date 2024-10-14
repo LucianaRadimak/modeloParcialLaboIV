@@ -1,1 +1,9 @@
-<p>detalle-peliculas works!</p>
+<div class="actor-details">
+    <span>Id: {{ peliculaSeleccionada.id }}</span><br>
+    <span>Nombre: {{ peliculaSeleccionada.nombre }}</span><br>
+    <span>Tipo: {{ peliculaSeleccionada.tipo }}</span><br>
+    <span>Fecha de estreno: {{ peliculaSeleccionada.fechaEstreno }}</span><br>
+    <span>cantidadPublico: {{ peliculaSeleccionada.cantidadPublico }}</span><br>
+    <img style="width: 200px; height: 200px;" [src]="peliculaSeleccionada.foto">
+    <span>Protagonista: {{ peliculaSeleccionada.protagonista.nombre }} {{peliculaSeleccionada.protagonista.apellido}}</span><br>
+  </div>

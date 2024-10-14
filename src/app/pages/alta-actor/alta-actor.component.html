@@ -6,56 +6,67 @@
 
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
-               <app-tabla-paises></app-tabla-paises>
+                <app-tabla-paises (pais)="seleccionarPais($event)"></app-tabla-paises>
             </div>
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Datos personales</h4>
-                <form class="needs-validation" novalidate>
+                <form [formGroup]="encuestaForm" class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="firstName" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid first name is required.
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="" formControlName="nombre"
+                                value="" required>
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('nombre')?.invalid && encuestaForm.get('nombre')?.touched">Solo
+                                    puede tener letras.</small>
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid last name is required.
+                            <input type="text" class="form-control" id="apellido" placeholder=""
+                                formControlName="apellido" value="" required>
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('apellido')?.invalid && encuestaForm.get('apellido')?.touched">Solo
+                                    puede tener letras.</small>
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="email" class="form-label">Email <span
-                                    class="text-muted">(Optional)</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
+                            <label for="edad" class="form-label">Edad</label>
+                            <input class="input" id="edad" type="number" formControlName="edad" required />
+                            <div class="error">
+                                <small *ngIf="encuestaForm.get('edad')?.invalid && encuestaForm.get('edad')?.touched">La
+                                    edad máxima es 99 años.</small>
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                            <div class="invalid-feedback">
-                                Please enter your shipping address.
+                            <label for="documento" class="form-label">DNI</label>
+                            <input class="input" id="documento" type="number" formControlName="documento" required />
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('documento')?.invalid && encuestaForm.get('documento')?.touched">El
+                                    dni debe tener como mínimo 8 dígitos.</small>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <input type="text" class="form-control" id="zip" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Zip code required.
+                            <input type="text" class="form-control" id="pais" formControlName="pais" placeholder=""
+                                required>
+                            <div class="error">
+                                <small
+                                    *ngIf="encuestaForm.get('pais')?.invalid && encuestaForm.get('pais')?.touched">El
+                                    país es obligatorio.</small>
                             </div>
                         </div>
                     </div>
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Alta</button>
+                    <button class="w-100 btn btn-primary btn-lg" (click)="onSubmit()" type="submit">Alta</button>
                 </form>
             </div>
         </div>

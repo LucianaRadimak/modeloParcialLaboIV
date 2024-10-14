@@ -1,1 +1,6 @@
-<p>tabla-paises works!</p>
+<div class="country-container">
+    <div *ngFor="let country of paises" class="country-btn" (click)="selectCountry(country)">
+      <img [src]="country.flag" alt="{{ country.name }} Flag" class="country-flag">
+      <span>{{ country.name }}</span>
+    </div>
+  </div>
